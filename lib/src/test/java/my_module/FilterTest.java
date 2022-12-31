@@ -15,7 +15,7 @@ import my_module.entity.Car;
 public class FilterTest {
 	
 	List<Car> carList;
-	MockListFilter<Car> listFilter = new MockListFilter<>(Car.class);
+	VOFilter<Car> listFilter = new VOFilter<>(Car.class);
 
 	@Before
 	public void setup() {

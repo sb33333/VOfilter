@@ -9,13 +9,19 @@ import java.util.Optional;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 
-public class MockListFilter<T> {
-	Class<T> clazz;
+/**
+ * Easy way to filter and sort VO elements in java List.
+ * 
+ * {@code VOFilter#addFilter(String, Object, FilterOperator)} to add filter.
+ * {@code VOFilter#addSorter(String, boolean)} to add sorting condition.
+ */
+public class VOFilter<T> {
+	private Class<T> clazz;
 	private ItemFilterMaker<T> filterMaker;
-	List<ItemSorter<T>> sorterList = new ArrayList<>();
-	List<ItemFilter<T>> filterList = new ArrayList<>();
+	private List<ItemSorter<T>> sorterList = new ArrayList<>();
+	private List<ItemFilter<T>> filterList = new ArrayList<>();
 	
-	public MockListFilter(Class<T> c) {
+	public VOFilter(Class<T> c) {
 		this.clazz = c;
 		filterMaker = new ItemFilterMaker<T>(clazz);
 	}
@@ -47,7 +53,7 @@ public class MockListFilter<T> {
 		return result;
 	}
 	
-	public MockListFilter<T> addSorter(String fieldName, boolean descendingOrder) {
+	public VOFilter<T> addSorter(String fieldName, boolean descendingOrder) {
 		if (sorterList == null) {
 			sorterList = new ArrayList<ItemSorter<T>>();
 		}
@@ -55,7 +61,7 @@ public class MockListFilter<T> {
 		return this;
 	}
 	
-	public MockListFilter<T> addFilter(String fieldName, Object filterValue, FilterOperator operation) {
+	public VOFilter<T> addFilter(String fieldName, Object filterValue, FilterOperator operation) {
 		if(filterList == null) {
 			filterList = new ArrayList<ItemFilter<T>>();
 		}

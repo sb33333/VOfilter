@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 public class ItemFilter<T> {
 	private Object filterValue;
 	private FilterOperator operation;
-	Method getter;
+	private Method getter;
 	
 	ItemFilter(String fieldName, Object filterValue, FilterOperator operation, Method getter) throws IllegalArgumentException {
 		this.getter = getter;
