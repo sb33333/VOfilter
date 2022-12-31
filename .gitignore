@@ -4,3 +4,6 @@
 # Ignore Gradle build output directory
 build
 .vscode/settings.json
+lib/bin/main/
+lib/bin/test/
+lib/bin/main/my_module/VOFilter.class
