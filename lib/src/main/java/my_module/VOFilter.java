@@ -12,8 +12,10 @@ import java.util.stream.Collectors;
 /**
  * Easy way to filter and sort VO elements in java List.
  * 
- * {@code VOFilter#addFilter(String, Object, FilterOperator)} to add filter.
+ * {@code VOFilter#addFilter(String, Object, FilterOperator)} to add filter condition.
  * {@code VOFilter#addSorter(String, boolean)} to add sorting condition.
+ * 
+ * Apply filtering or sorting {@code VOFilter#doFiltering(List)}, {@code VOFilter#doSorting(List)}, {@code VOFilter#doFilteringAndSorting(List)}
  */
 public class VOFilter<T> {
 	private Class<T> clazz;
